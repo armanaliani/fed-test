@@ -7,13 +7,13 @@
   font-family: "Roboto", sans-serif;
   color: white;
 }
-#q4Wrapper h1, #q4Wrapper h3 {
+#q4Wrapper h1, #q4Wrapper h2 {
   margin: 0;
 }
 #q4Wrapper h1 {
   font-size: 48px;
 }
-#q4Wrapper h3 {
+#q4Wrapper h2 {
   font-size: 14px;
   line-height: 20px;
   text-transform: uppercase;
@@ -41,8 +41,10 @@
   color: white;
   transition: transform 0.3s ease;
 }
-#q4Wrapper a:hover {
+#q4Wrapper a:hover,
+#q4Wrapper a:focus {
   transform: scale(1.05);
+  outline: none;
 }
 #q4Wrapper a span {
   opacity: 0.5;
@@ -59,6 +61,29 @@
 }
 
 /* Begin styling the report items here! */
-.reports {
 
+.reports {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 30px 1fr 30px 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .reports {
+    -ms-grid-columns: 1fr 30px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 585px) {
+  .reports {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .reports_docs {
+    width: 286px;
+    margin: auto;
+  }
 }
